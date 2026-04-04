@@ -174,20 +174,31 @@ JA4, daha geniş bir fingerprint ailesinin yalnızca TLS istemci tarafına odakl
 | **JA4D6** | DHCPv6 fingerprinting |
 
 
+**EK OLARAK ;**
+VirusTotal platformunun blog sayfasında açıklayıcı bir örneğe denk geldim ve paylaşmak istedim. 
+
+Örnek Arama: Diyelim ki VirusTotal'ın davranışsal analizi sırasında "t10d070600_c50f5591e341_1a3805c3aa63" JA4 parmak izini gösteren şüpheli bir dosyayla karşılaştınız.
+
+<img width="524" height="414" alt="image" src="https://github.com/user-attachments/assets/19c458c3-26bc-442c-bd39-687e53928a2a" />
+
+[behavior_network:t10d070600_c50f5591e341_1a3805c3aa63](https://www.virustotal.com/gui/search/behaviour_network%253At10d070600_c50f5591e341_1a3805c3aa63) arama sorgusunu kullanarak aynı fingerprint'e sahip diğer dosyaları bulabilirsiniz. Bu arama sizi aynı JA4 paylaşan ek örneklere yönlendirecek ve bunların ilişkili olabileceğini gösterecektir. Bu, bu dosyaların aynı kötü amaçlı yazılım ailesinin parçası olduğunu, ortak bir geliştiriciye sahip olduğunu veya ortak bir TLS kütüphanesini paylaştığını gösterebilir.
+
+
 <b><h1>REFERANSLAR</h1></b>
 
 - FoxIO — [JA4 Technical Details](https://github.com/FoxIO-LLC/ja4/blob/main/technical_details/JA4.md)
 - FoxIO — [JA4+ Technical Details](https://github.com/FoxIO-LLC/ja4/blob/main/technical_details/README.md)
 - FoxIO — [JA4+ for Zeek](https://github.com/FoxIO-LLC/ja4/blob/main/zeek/README.md)
 - FoxIO — [JA4+ for Wireshark](https://github.com/FoxIO-LLC/ja4/blob/main/wireshark/README.md)
-- FoxIO - [JA4+ Network Fingerprinting] (https://blog.foxio.io/ja4%2B-network-fingerprinting)
-- FoxIO - [JA4T: TCP Fingerprinting] (https://blog.foxio.io/ja4t-tcp-fingerprinting)
+- FoxIO - [JA4+ Network Fingerprinting](https://blog.foxio.io/ja4%2B-network-fingerprinting)
+- FoxIO - [JA4T: TCP Fingerprinting](https://blog.foxio.io/ja4t-tcp-fingerprinting)
 - AWS WAF — [JA4Fingerprint](https://docs.aws.amazon.com/waf/latest/APIReference/API_JA4Fingerprint.html)
 - Cloudflare — [JA4 Signals](https://blog.cloudflare.com/ja4-signals/)
 - RFC 8446 — [The Transport Layer Security (TLS) Protocol Version 1.3](https://www.rfc-editor.org/rfc/rfc8446.html)
 - RFC 8701 — [Applying GREASE to TLS Extensibility](https://www.rfc-editor.org/rfc/rfc8701.html)
-- Salesforce - [JA3 - A method for profiling SSL/TLS Clients] (https://github.com/salesforce/ja3/blob/master/README.md)
+- Salesforce - [JA3 - A method for profiling SSL/TLS Clients](https://github.com/salesforce/ja3/blob/master/README.md)
 - GoogleCloud Community — [JA4 Fingerprinting in GTI: Deep Dive](https://security.googlecloudcommunity.com/community-blog-42/ja4-fingerprinting-in-gti-deep-dive-6043)
+- VirusTotal Blog - [JA4 Client Fingerprinting on VirusTotal](https://blog.virustotal.com/2024/10/unveiling-hidden-connections-ja4-client.html)
 
 
 
