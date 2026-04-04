@@ -101,7 +101,11 @@ JA4_C, istemcinin extension tarafındaki davranışını daha çok temsil eder. 
 **JA4 Neden Önemlidir?** <br>
 
 JA4’ün önemli olmasının nedeni, yalnızca TLS istemcileri için yeni bir fingerprint üretmesi değildir. Asıl önemli nokta, istemcinin bağlantı davranışını daha okunabilir ve daha karşılaştırılabilir bir formata dönüştürmesidir. Bu da ağ görünürlüğünü artırma, benzer istemcileri gruplama, anomali tespiti yapma ve şüpheli istemci davranışlarını ayırt etme açısından güvenlik ekiplerine fayda sağlar.
-Özellikle TLS trafiğinin yoğun olduğu ortamlarda JA4, yalnızca IP adresi, domain veya user-agent gibi kolay değişebilen göstergelere bağlı kalmadan istemcinin teknik karakteristiğine dair ek bağlam sunabilir.
+Özellikle TLS trafiğinin yoğun olduğu ortamlarda JA4, yalnızca IP adresi, domain veya user-agent gibi kolay değişebilen göstergelere bağlı kalmadan istemcinin teknik karakteristiğine dair ek bağlam sunabilir. 
+
+**Birden Fazla İstemci Aynı JA4 Fingerprint Değerine Sahip Olabilir mi?** <br>
+
+Evet, birden fazla istemcinin aynı JA4 fingerprint değerine sahip olması mümkündür. JA4, bir cihazı veya kullanıyı benzersiz şekilde tanımlamak için tasarlanmamıştır.Bunun yerine, istemci tarafından kullanılan TLS uygulama yığınını tanımlar.Bu, JA4'ün istemci yazılımı tarafından kullanılan belirli kütüphaneler ve yapılandırmalar için yüksek doğrulukta bir imza sağladığı anlamına gelir; bu da, iletim sırasında sonraki iletişim şifrelenmiş olsa bile, istemcinin yapılandırması hakkında kritik bilgiler sağlar.Bu, analistlerin oturum içeriğinin şifresini çözmeye gerek kalmadan kötü amaçlı veya anormal etkinlikleri belirlemelerine ve izlemelerine olanak tanır. 
 
 
 <b><h1>JA4 Fingerprint Ekipler İçin Önemi</h1></b>
@@ -111,7 +115,11 @@ JA4’ün önemli olmasının nedeni, yalnızca TLS istemcileri için yeni bir f
 
 **SOC Ekipleri :** JA4, bir olay sırasında görülen şüpheli TLS istemcilerini ayırmak ve aynı davranışı gösteren başka hostları bulmak için kullanılabilir. Analist, şüpheli bir JA4 değerini geriye dönük olarak aratarak aynı fingerprint’in başka hangi sistemlerde, hangi süreçlerle ve hangi hedeflere karşı tekrar ettiğini inceleyebilir. Böylece olayın kapsamı daha net anlaşılabilir.
 
-**Detection Ekipleri :** JA4, yeni analitikler ve korelasyon kuralları geliştirmek açısından anlamlıdır. Örneğin kurumda beklenen tarayıcı profillerinden sapmalar, SNI içermeyen alışılmadık TLS istemcileri veya aynı JA4'ün şüpheli süreçlerle birlikte görülmesi gibi örüntüler kural mantığına dönüşebilir.
+**Kötü Amaçlı Yazılım ve Bot Tespiti :** Kötü amaçlı yazılımlar genellikle ağ iletişimi için benzersiz veya özel olarak oluşturulmuş kütüphaneler kullanır (örneğin, Komuta ve Kontrol (C2) trafiği). Bu özel kütüphaneler tutarlı ve benzersiz bir JA4 parmak izi oluşturur.
+
+**Tehdit Avcılığı :** Bir tehdit avcısı, şüpheli bir JA4 parmak izinin tek bir örneğini keşfedebilir ve ardından aramasını tüm ağ günlüklerine yayarak aynı parmak izini paylaşan diğer tüm bağlantıları bulabilir.
+
+**Düşmanları ve Araçları Gruplandırma :** Fingerprint, istemcinin temel yazılım yığınına (örneğin, programlama dili, işletim sistemi veya bir kütüphanenin belirli sürümü) bağlı olduğundan, görünüşte ilgisiz ağ bağlantılarını aynı tehdit aktörüne veya kötü amaçlı yazılım ailesine gruplandırabilir.
 
 <b><h1>Analiz Örneği</h1></b>
 
@@ -140,7 +148,7 @@ Ayrıca loglarda hedefin doğrudan IP adresi olması, SNI alanının boş görü
 Bu nedenle JA4 her zaman süreç bilgisi, hedef, kullanıcı, sertifika, DNS, proxy ve EDR logları ile birlikte değerlendirilmelidir. 
 
 **Sorulabilecek Sorular**
-- Aynı JA4 değeri başka hangi gostlarda görülüyor?
+- Aynı JA4 değeri başka hangi hostlarda görülüyor?
 - Bu fingerprint hangi süreçlerle birlikte ortaya çıkmaktadır?
 - Hep aynı hedef IP veya benzer hedeflere mi gidiyor?
 - Bu hostlarda yakın zamanda şüpheli komut çalıştırılmış mı?
@@ -179,6 +187,7 @@ JA4, daha geniş bir fingerprint ailesinin yalnızca TLS istemci tarafına odakl
 - RFC 8446 — [The Transport Layer Security (TLS) Protocol Version 1.3](https://www.rfc-editor.org/rfc/rfc8446.html)
 - RFC 8701 — [Applying GREASE to TLS Extensibility](https://www.rfc-editor.org/rfc/rfc8701.html)
 - Salesforce - [JA3 - A method for profiling SSL/TLS Clients] (https://github.com/salesforce/ja3/blob/master/README.md)
+- GoogleCloud Community — [JA4 Fingerprinting in GTI: Deep Dive](https://security.googlecloudcommunity.com/community-blog-42/ja4-fingerprinting-in-gti-deep-dive-6043)
 
 
 
