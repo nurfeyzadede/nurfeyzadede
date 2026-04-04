@@ -104,7 +104,7 @@ JA4’ün önemli olmasının nedeni, yalnızca TLS istemcileri için yeni bir f
 Özellikle TLS trafiğinin yoğun olduğu ortamlarda JA4, yalnızca IP adresi, domain veya user-agent gibi kolay değişebilen göstergelere bağlı kalmadan istemcinin teknik karakteristiğine dair ek bağlam sunabilir.
 
 
-<b><h1>JA4 Fingerprint Nedir?</h1></b>
+<b><h1>JA4 Fingerprint Ekipler İçin Önemi</h1></b>
 
 **CTI Ekipleri :** JA4, IP veya domain gibi kolay değiştirilebilen göstergelerin ötesinde istemci davranışını ilişkilendirmek için kullanılabilir. Benzer JA4 değerleri, aynı TLS istemci profilinin farklı zamanlarda veya farklı altyapılar üzerinden tekrar ettiğini gösterebilir. Bu nedenle JA4, IOC’den çok davranışsal pivot olarak değerlidir.
 
