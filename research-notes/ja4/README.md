@@ -1,6 +1,6 @@
 <b><h1>Giriş</h1></b>
 
-Son dönemde JA4 fingerprint konusunu anlamaya çalışırken önce TLS el sıkışmasının mantığını, özellikle de ClientHello mesajının ne taşıdığını daha detaylı anlamam gerektiğini fark ettim. Çünkü JA4 doğrudan bu katmandaki bazı özelliklerden üretilen bir fingerprint yapısına dayanıyor. <br>
+Son dönemde Ja4 fingerprint konusunu ele almadan önce tls el sıkışma mantığını, özellikle de cilienthello mesajının ne taşıdığını bilmemiz gerek Çünkü JA4 doğrudan bu katmandaki bazı özelliklerden üretilen bir fingerprint yapısına dayanıyor. <br>
 
 Ağ güvenliği tarafında bir istemciyi yalnızca IP adresiyle ya da görünen uygulama bilgileriyle tanımak çoğu zaman yeterli olmuyor. Bu nedenle istemcinin bağlantı sırasında bıraktığı teknik izler önem kazanıyor. TLS ClientHello mesajı da bu izlerin en dikkat çekici örneklerinden biri. <br>
 
